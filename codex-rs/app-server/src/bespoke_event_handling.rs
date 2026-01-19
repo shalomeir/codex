@@ -305,7 +305,7 @@ pub(crate) async fn apply_bespoke_event_handling(
                     answers: HashMap::new(),
                 };
                 if let Err(err) = conversation
-                    .submit(Op::RequestUserInputResponse {
+                    .submit(Op::UserInputAnswer {
                         id: event_turn_id,
                         response: empty,
                     })
@@ -1418,7 +1418,7 @@ async fn on_request_user_input_response(
                 answers: HashMap::new(),
             };
             if let Err(err) = conversation
-                .submit(Op::RequestUserInputResponse {
+                .submit(Op::UserInputAnswer {
                     id: event_turn_id,
                     response: empty,
                 })
@@ -1454,7 +1454,7 @@ async fn on_request_user_input_response(
     };
 
     if let Err(err) = conversation
-        .submit(Op::RequestUserInputResponse {
+        .submit(Op::UserInputAnswer {
             id: event_turn_id,
             response,
         })
